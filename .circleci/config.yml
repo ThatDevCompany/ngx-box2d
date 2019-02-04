@@ -18,7 +18,7 @@ jobs:
 
       - run:
           name: Installing Packages
-          command: yarn install
+          command: npm install
 
       - save_cache:
           key: cache-{{ .Environment.CACHE_VERSION }}-{{ checksum "package.json" }}
@@ -40,7 +40,7 @@ jobs:
 
       - run:
           name: Testing
-          command: yarn run test
+          command: npm run test
 
 #----------------
 # WORKFLOWS
