@@ -1,7 +1,7 @@
 const BuildUtils = require('that-build-library').BuildUtils
 
 module.exports = Promise.resolve()
-	
+
 	.then(() => BuildUtils.echo('Testing'))
 	.then(() =>
 		// prettier-ignore

@@ -1,13 +1,16 @@
 const BuildUtils = require('that-build-library').BuildUtils
 
 module.exports = Promise.resolve()
+	.then(() => BuildUtils.echo('Cleaning'))
 	.then(() => BuildUtils.clean('dist/'))
 
 	.then(() => BuildUtils.echo('Transpiling'))
 	.then(() => BuildUtils.exec('ngc', ['src/index']))
 
 	.then(() => BuildUtils.echo('Inlining'))
-	.then(() => BuildUtils.exec('ng-asset-inline', ['dist/ngxbox2d', 'src/ngxbox2d']))
+	.then(() =>
+		BuildUtils.exec('ng-asset-inline', ['dist/ngxbox2d', 'src/ngxbox2d'])
+	)
 
 	.then(() => BuildUtils.echo('Rolling Up'))
 	.then(() =>
@@ -30,4 +33,7 @@ module.exports = Promise.resolve()
 	.then(() => BuildUtils.copy('README.md', 'dist'))
 	.then(() => BuildUtils.copy('LICENSE', 'dist'))
 
-	.catch(console.error)
+	.catch(e => {
+		console.error('An error occurred during unit testing', e)
+		process.exit(1)
+	})

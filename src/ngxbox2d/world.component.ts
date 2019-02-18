@@ -1,5 +1,5 @@
 import { Component, Input, OnInit, ElementRef } from '@angular/core'
-import { BaseMixin, DynamicClock, SubscriberMixin } from 'ngx-component-mixins'
+import { Base, DynamicClock, Subscriber } from 'ngx-component-mixins'
 import { B2World } from 'that-box2d-library'
 
 /**
@@ -9,8 +9,7 @@ import { B2World } from 'that-box2d-library'
 	selector: 'svg[box2d]',
 	template: '<ng-content></ng-content>'
 })
-export class WorldComponent extends SubscriberMixin(BaseMixin)
-	implements OnInit {
+export class WorldComponent extends Subscriber(Base) implements OnInit {
 	/* CONSTRUCTOR */
 	constructor(private hostElement: ElementRef) {
 		super()

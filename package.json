@@ -1,7 +1,7 @@
 {
     "name": "ngx-box2d",
     "description": "An Angular X adapter for that-box2d-library",
-    "version": "0.1.3",
+    "version": "0.1.5",
     "license": "MIT",
     "repository": {
         "type": "git",
@@ -17,7 +17,7 @@
         "publish": "node admin/scripts/publish.js"
     },
     "dependencies": {
-        "ngx-component-mixins": "0.1.6",
+        "ngx-component-mixins": "0.1.24",
         "that-box2d-library": "0.0.23",
         "that-build-library": "1.0.2"
     },

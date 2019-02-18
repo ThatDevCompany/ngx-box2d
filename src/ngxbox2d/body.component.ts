@@ -1,5 +1,5 @@
 import { Component, Input, ViewChild, ElementRef } from '@angular/core'
-import { BaseMixin, DynamicClock, SubscriberMixin } from 'ngx-component-mixins'
+import { Base, DynamicClock, Subscriber } from 'ngx-component-mixins'
 import { B2World, B2Body, B2BodyType, B2Fixture } from 'that-box2d-library'
 import { SVGMathsUtility } from './svgmaths.utility'
 
@@ -14,7 +14,7 @@ import { SVGMathsUtility } from './svgmaths.utility'
 		'[attr.d]="fixture.m_userData.path" ' +
 		'[attr.class]="fixture.m_userData.class"></svg:path>'
 })
-export class BodyComponent extends SubscriberMixin(BaseMixin) {
+export class BodyComponent extends Subscriber(Base) {
 	/* CONSTRUCTOR */
 	constructor(private hostElement: ElementRef) {
 		super()
