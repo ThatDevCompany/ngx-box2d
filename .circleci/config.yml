@@ -14,8 +14,8 @@ jobs:
       - checkout
 
       - run:
-        name: Creating Cache Checksum
-        command: cp package.json cache.checksum
+          name: Creating Cache Checksum
+          command: cp package.json cache.checksum
 
       - restore_cache:
           key: cache-{{ .Environment.CACHE_VERSION }}-{{ checksum "cache.checksum" }}
@@ -39,8 +39,8 @@ jobs:
       - checkout
 
       - run:
-        name: Creating Cache Checksum
-        command: cp package.json cache.checksum
+          name: Creating Cache Checksum
+          command: cp package.json cache.checksum
 
       - restore_cache:
           keys:
