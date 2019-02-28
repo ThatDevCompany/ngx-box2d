@@ -22,7 +22,7 @@ jobs:
 
       - run:
           name: Installing Packages
-          command: yarn install
+          command: npm install
 
       - save_cache:
           key: cache-{{ .Environment.CACHE_VERSION }}-{{ checksum "cache.checksum" }}
