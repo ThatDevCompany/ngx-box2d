@@ -13,15 +13,18 @@ jobs:
     steps:
       - checkout
 
+        environment:
+          CACHENAME: cache-{{ .Environment.CACHE_VERSION }}-{{ checksum "package.json" }}
+
       - restore_cache:
-          key: cache-{{ .Environment.CACHE_VERSION }}-{{ checksum "package.json" }}
+          key: CACHENAME
 
       - run:
           name: Installing Packages
-          command: npm install
+          command: yarn install
 
       - save_cache:
-          key: cache-{{ .Environment.CACHE_VERSION }}-{{ checksum "package.json" }}
+          key: CACHENAME
           paths: node_modules
 
   #----------------
@@ -34,9 +37,12 @@ jobs:
     steps:
       - checkout
 
+        environment:
+          CACHENAME: cache-{{ .Environment.CACHE_VERSION }}-{{ checksum "package.json" }}
+
       - restore_cache:
           keys:
-            - cache-{{ .Environment.CACHE_VERSION }}-{{ checksum "package.json" }}
+            - CACHENAME
 
       - run:
           name: Testing
